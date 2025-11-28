@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="gallery-app">
+    <h1>Image Gallery</h1>
+    <p class="hint">Click an image to open modal. Images lazy-load as you scroll.</p>
+    <div id="gallery" class="grid"></div>
+  </div>
+
+  <div id="modal" class="modal hidden" tabindex="-1">
+    <div class="modal-backdrop" data-action="close"></div>
+    <div class="modal-content">
+      <button class="modal-close" data-action="close">✕</button>
+      <img id="modal-img" src="" alt="" />
+      <div class="modal-nav">
+        <button id="prev">◀</button>
+        <button id="next">▶</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

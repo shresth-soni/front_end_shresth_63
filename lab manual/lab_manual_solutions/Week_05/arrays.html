@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays</title>
+</head>
+<body>
+    <script>
+        let nums = [1, 2, 3, 4, 5];
+        let doubled = nums.map(n => n * 2);
+        let evens = nums.filter(n => n % 2 === 0);
+        let sum = nums.reduce((a, b) => a + b, 0);
+        console.log("Doubled:", doubled);
+        console.log("Evens:", evens);
+        console.log("Sum:", sum);
+        nums.forEach(n => console.log(n));
+    </script>
+    <p>Check console for output.</p>
+</body>
+</html>

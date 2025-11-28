@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>University Finder</title>
+</head>
+<body>
+    <input type="text" id="country" placeholder="Enter Country">
+    <button onclick="search()">Search</button>
+    <ul id="results"></ul>
+    <script>
+        async function search() {
+            let c = document.getElementById('country').value;
+            let res = await fetch(`http://universities.hipolabs.com/search?country=${c}`);
+            let data = await res.json();
+            let list = document.getElementById('results');
+            list.innerHTML = '';
+            data.forEach(u => {
+                let li = document.createElement('li');
+                li.innerHTML = `<b>${u.name}</b> - ${u['state-province'] || ''} <a href="${u.web_pages[0]}" target="_blank">Web</a>`;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

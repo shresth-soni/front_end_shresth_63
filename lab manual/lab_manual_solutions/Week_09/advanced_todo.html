@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Todo</title>
+    <style> li { margin: 5px 0; } </style>
+</head>
+<body>
+    <input type="text" id="task">
+    <button onclick="add()">Add</button>
+    <ul id="list"></ul>
+    <script>
+        function add() {
+            let val = document.getElementById('task').value;
+            if(!val) return;
+            let li = document.createElement('li');
+            li.innerHTML = `<input type="checkbox"> <span>${val}</span> 
+                <button onclick="moveUp(this)">Up</button> 
+                <button onclick="moveDown(this)">Down</button> 
+                <button onclick="del(this)">X</button>`;
+            document.getElementById('list').appendChild(li);
+            document.getElementById('task').value = '';
+        }
+        function del(btn) { btn.parentElement.remove(); }
+        function moveUp(btn) {
+            let li = btn.parentElement;
+            if(li.previousElementSibling) li.parentNode.insertBefore(li, li.previousElementSibling);
+        }
+        function moveDown(btn) {
+            let li = btn.parentElement;
+            if(li.nextElementSibling) li.parentNode.insertBefore(li.nextElementSibling, li);
+        }
+    </script>
+</body>
+</html>

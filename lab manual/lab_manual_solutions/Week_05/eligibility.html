@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eligibility</title>
+</head>
+<body>
+    <input type="number" id="age" placeholder="Enter Age">
+    <button onclick="check()">Check</button>
+    <p id="result"></p>
+    <script>
+        function check() {
+            let age = document.getElementById('age').value;
+            let msg = (age >= 18) ? "Eligible" : "Not Eligible";
+            document.getElementById('result').innerText = msg;
+        }
+    </script>
+</body>
+</html>

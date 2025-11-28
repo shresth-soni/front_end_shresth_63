@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Cards</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style> .card { border: 1px solid #ccc; padding: 10px; margin: 10px; width: 200px; display: inline-block; } </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Card({ title, desc, img }) {
+            return (
+                <div className="card">
+                    <img src={img} alt={title} width="100%" />
+                    <h3>{title}</h3>
+                    <p>{desc}</p>
+                </div>
+            );
+        }
+        function App() {
+            return (
+                <div>
+                    <Card title="Item 1" desc="Desc 1" img="https://via.placeholder.com/150" />
+                    <Card title="Item 2" desc="Desc 2" img="https://via.placeholder.com/150" />
+                </div>
+            );
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

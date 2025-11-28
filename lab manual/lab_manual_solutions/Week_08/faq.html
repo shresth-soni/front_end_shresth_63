@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style> .ans { display: none; } </style>
+</head>
+<body>
+    <div class="faq">
+        <h3>Question 1</h3>
+        <p class="ans">Answer 1</p>
+        <h3>Question 2</h3>
+        <p class="ans">Answer 2</p>
+    </div>
+    <script>
+        $('h3').click(function() {
+            $(this).next('.ans').slideToggle();
+        });
+    </script>
+</body>
+</html>

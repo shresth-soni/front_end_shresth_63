@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+</head>
+<body>
+    <input type="text" id="task">
+    <button onclick="add()">Add</button>
+    <ul id="list"></ul>
+    <script>
+        function add() {
+            let val = document.getElementById('task').value;
+            if(!val) return;
+            let li = document.createElement('li');
+            li.textContent = val;
+            let btn = document.createElement('button');
+            btn.textContent = "X";
+            btn.onclick = function() { this.parentElement.remove(); };
+            li.appendChild(btn);
+            document.getElementById('list').appendChild(li);
+            document.getElementById('task').value = '';
+        }
+    </script>
+</body>
+</html>

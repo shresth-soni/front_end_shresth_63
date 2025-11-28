@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interview Questions</title>
+</head>
+<body>
+    <script>
+        (function() {
+            console.log("IIFE Executed");
+        })();
+
+        function outer() {
+            let count = 0;
+            return function() {
+                count++;
+                console.log(count);
+            }
+        }
+        let counter = outer();
+        counter();
+        counter();
+    </script>
+    <p>Check console.</p>
+</body>
+</html>

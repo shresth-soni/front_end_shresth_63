@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Fade</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style> #login { display: none; border: 1px solid #ccc; padding: 20px; width: 200px; } </style>
+</head>
+<body>
+    <button id="show">Login</button>
+    <div id="login">
+        <input type="text" placeholder="User"><br>
+        <input type="password" placeholder="Pass"><br>
+        <button id="hide">Close</button>
+    </div>
+    <script>
+        $('#show').click(() => $('#login').fadeIn());
+        $('#hide').click(() => $('#login').fadeOut());
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form State</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Form() {
+            const [data, setData] = React.useState({ name: '', email: '', msg: '' });
+            const [submitted, setSubmitted] = React.useState(null);
+
+            const handleChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                setSubmitted(data);
+            };
+
+            return (
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <input name="name" placeholder="Name" onChange={handleChange} /><br/>
+                        <input name="email" placeholder="Email" onChange={handleChange} /><br/>
+                        <textarea name="msg" placeholder="Message" onChange={handleChange}></textarea><br/>
+                        <button>Submit</button>
+                    </form>
+                    {submitted && (
+                        <div>
+                            <h3>Submitted Data:</h3>
+                            <p>Name: {submitted.name}</p>
+                            <p>Email: {submitted.email}</p>
+                            <p>Msg: {submitted.msg}</p>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Form />);
+    </script>
+</body>
+</html>

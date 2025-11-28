@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Async Fetch</title>
+</head>
+<body>
+    <button onclick="fetchData()">Fetch Data</button>
+    <div id="output"></div>
+    <script>
+        function fetchData() {
+            document.getElementById('output').innerText = "Loading...";
+            new Promise(resolve => setTimeout(() => resolve("Data Loaded"), 2000))
+                .then(data => document.getElementById('output').innerText = data);
+        }
+    </script>
+</body>
+</html>
